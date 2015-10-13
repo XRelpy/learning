@@ -4,8 +4,12 @@ EXE = debug/main
 OBJ = 1.o
 SRC = 1.c
 CC = gcc
+
 EXE: $(OBJ)
 	$(CC) -o $(EXE) $^
+	
+OBJ:$(SRC)
+	$(CC) -o $(OBJ) -c $^
 .PHONY:clean
 clean:
 	-rm -vfr $(OBJ) $(EXE)
