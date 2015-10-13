@@ -1,0 +1,12 @@
+obj := mkfifo
+mkfifo: mkFifo.c markFifo.h
+	gcc  $< -o debug/mkfifo 
+writefifo:writeFifo.c markFifo.h
+	gcc -o debug/writefifo $<
+readfifo:readFifo.c markFifo.h
+	gcc -o debug/readfifo $<
+
+.PHONY :clean
+clean:
+	@rm /tmp/markFifo debug/mkfifo debug/writefifo debug/readfifo
+
