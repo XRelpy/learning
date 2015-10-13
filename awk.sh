@@ -21,7 +21,7 @@ function passwdText() {
 function findCfileFun(arg1)
 {
 #	if (arg1 ~ /void.*.(.*.)/){
-	if(arg1 ~ //)
+	if(arg1 ~ /void/)
 		printf "%s\n",arg1
 	}	
 }
