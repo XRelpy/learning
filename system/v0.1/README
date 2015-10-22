@@ -1,0 +1,36 @@
+使用linux Kernel 2.6 和busybox 1.4建立的最小系统
+
+系统创建步骤:
+    1:建立linux系统编译环境:
+        主要是linux系统的依赖环境
+    2：下载linux内核:https://www.kernel.org
+       下载busybox：http://busybox.net
+    3:创建rootfs
+        在系统中建立rootfs文件夹(进行以下操作)
+            mknod -m 600 dev/console c 5 1
+            mknod -m 600 dev/null c 1 3
+            mkdir proc etc sys mnt
+            touch etc/mdev.conf
+
+        创建init(vim init)
+        #!/bin/sh 
+        mount -t proc proc /proc 
+        mount -t sysfs sysfs /sys
+        mdev -s 
+        /bin/sh
+        给init执行权限: chmod +x init
+    4：编译busybox
+        make menuconfig
+        加上以下功能
+        busybox setting -> Build Options -> Build busybox as static
+        编译(将在rootfs中生成busybox的static文档):
+        make CONFIG_PREFIX={rootfs path} install
+    5:编译Kernel
+        make menuconfig
+        选择以下功能:
+        general setup -> Initial Ram filesystem输入rootfs路径
+
+        编译make -j4
+    6:测试:
+        使用qemu虚拟机在linux boot中选择bzImage启动
+

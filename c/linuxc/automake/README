@@ -7,10 +7,11 @@ setup 3:
 	add to configure.ac :
 		AM_INIT_AUTOMAKE
 		AC_PROG_LIBTOOL
-	touch file:
+	touch file:(error will give the file name ,use touch create it)
 		touch NEWS
 		touch README
 		touch ChangeLog
+		
 setup 4:
 	autoreconf --install
 setup 5:
