@@ -1,0 +1,17 @@
+	系统采用kernel和initrd分离,其中initrd采用cpio打包，如果有修改可以直接进行改
+动initrd的打包文件。
+系统的使用和自定义:
+	在QEMU的Linux Boot中的选择kerenl和ram Disk的路径，运行。
+	kernel编译基本为默认的选项，功能比较全，相应的改动可以直接在initrd中进行，不
+过initrd没有加入lib选项，若要进行c程序，在用gcc编译中(以hello.c为例): 
+			gcc -o hello -static hello.c
+	使用静态编译的程序不需要动态链接可以直接在这个系统上运行，更多的环境可以自行
+定制
+	1:解压initrd
+		使用在编译中关的initramfs文件，解压
+	２:系统改动，可以写入自己的应用
+	３：打包:
+		在改动文件的根目录上:
+		find . | cpio -o -H newc |gzip > ../v03
+	
+	
