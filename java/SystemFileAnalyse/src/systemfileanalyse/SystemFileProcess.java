@@ -48,7 +48,7 @@ public class SystemFileProcess {
                             }); 
                     } else if (flist[i].isDirectory()) {
                             //System.out.println("文件夹");
-                            readfile(flist[i].getPath() + "\\");
+                            readfile(flist[i].getPath() + "/");
                             //readfile(filepath + "\\"  + flist[i]);
                     }
                 }
