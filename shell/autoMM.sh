@@ -2,7 +2,8 @@
 
 curDir=$(pwd)
 
-source /media/mark/SSD_Disk/Hades_MR3/build/envsetup.sh
+#source $(code)/build/envsetup.sh
+#here need sue system mm env
 
 function debug() {
     echo CurrentDir:${curDir}
