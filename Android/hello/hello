@@ -1,0 +1,5 @@
+# Script to start "settings" on the device
+#
+base=/system
+export CLASSPATH=$base/framework/hello.jar
+exec app_process $base/bin com.xreply.commands.HelloCmd "$@"
