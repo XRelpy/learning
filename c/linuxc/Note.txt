@@ -1,1 +1,0 @@
-ulimit -n -- Max number of open file
